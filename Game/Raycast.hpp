@@ -6,5 +6,6 @@
 class Raycast{
     public:
         void draw_Rays3D();
-    
+        int rays;
+        
 }
