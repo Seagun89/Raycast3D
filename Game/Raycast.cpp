@@ -4,7 +4,6 @@
 #include <cmath>
 #include <iostream>
 
-
 void Raycast::draw_Rays3D()
 {
     
