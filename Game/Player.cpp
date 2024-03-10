@@ -28,11 +28,13 @@ void Player::draw_Rays()
     {
         //checking for horizontal lines in map
         depthOfField = 0;
-        aTan = -1/tan(rayAngle); // the negation of arctan is due to inversion of yaxis in computer graphics
+        aTan = -1/tan(rayAngle); // the negation of arctan is due to inversion of y-axis in computer graphics
         if (rayAngle > PI) 
         {
             rayY = ((static_cast<int>(point.y) >> 6) << 6) - 1; // Using Quantization, Equivalent to point.y / 64 * 64 to get in base 2^6
-            
+            rayX = (point.y - rayY) * aTan + point.x;
+            y0 = -64; // next rayY hit by ray
+            x0 = -y0 * aTan; // next rayX hit by ray 
         }
     }
 }

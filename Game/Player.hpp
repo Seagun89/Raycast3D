@@ -27,8 +27,8 @@ class Player {
         float rayX;
         float rayY;
         float rayAngle;
-        float initialX;
-        float initialY;
+        float x0;
+        float y0;
         float aTan;
 };
 #endif
