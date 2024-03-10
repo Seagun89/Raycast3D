@@ -1,4 +1,5 @@
 #include "raylib.h"
+#include "Map.hpp"
 #ifndef PLAYER_HPP
 #define PLAYER_HPP
 
@@ -9,14 +10,25 @@ class Player {
         void look_Left(float sightAngle, Vector2 sightVector);
         void look_Right(float sightAngle, Vector2 sightVector);
         void draw_Player();
-        float pa;
-
+        void draw_Rays();
+        
     private:
         Color player_Color;
-        Vector2 point;
         Vector2 sightVector;
-        float pdx;
-        float pdy;
-        
+        Vector2 point;
+        float pa; // player angle
+        float pdx; // player delta x 
+        float pdy; // player delta y
+        int rays;
+        int mapX;
+        int mapY;
+        int mapPoint;
+        int depthOfField;
+        float rayX;
+        float rayY;
+        float rayAngle;
+        float initialX;
+        float initialY;
+        float aTan;
 };
 #endif

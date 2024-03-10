@@ -1,5 +1,6 @@
 #include "raylib.h"
 #include "Player.hpp" 
+#include "Map.hpp"
 #include <cmath>
 #include <iostream>
 
@@ -16,12 +17,29 @@ void Player::draw_Player()
     DrawCircleV(point, 5.0f, player_Color); // player
     DrawCircle(point.x, point.y, 1.0f, RED); // center of player
     DrawLineV((Vector2){point.x, point.y},(Vector2){point.x + pdx, point.y + pdy}, GREEN); // sight line
+    //draw_Rays();
 }
 
+void Player::draw_Rays()
+{
+    rayAngle = pa;
+    
+    for(rays = 0; rays < 1; rays++)
+    {
+        //checking for horizontal lines in map
+        depthOfField = 0;
+        aTan = -1/tan(rayAngle); // the negation of arctan is due to inversion of yaxis in computer graphics
+        if (rayAngle > PI) 
+        {
+            rayY = ((static_cast<int>(point.y) >> 6) << 6) - 1; // Using Quantization, Equivalent to point.y / 64 * 64 to get in base 2^6
+            
+        }
+    }
+}
 void Player::move_Player()
 {
     // formula for moving point along vector angle 
-    // x1 = x + cos(ang) * distance;4
+    // x1 = x + cos(ang) * distance;
     // y1 = y + sin(ang) * distance;
     if (IsKeyDown(KEY_A))
     {
